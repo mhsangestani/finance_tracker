@@ -1,3 +1,25 @@
 from django.shortcuts import render
+from .models import Transaction
+from django.db.models import Sum, Case, When, IntegerField
 
-# Create your views here.
+def dashboard(request):
+    transactions = Transaction.objects.order_by('-date')[:20]
+
+    # جمع‌های خلاصه
+    totals = Transaction.objects.aggregate(
+        total_income = Sum(
+            Case(When(type=Transaction.INCOME,  then='amount'),
+                 default=0, output_field=IntegerField())),
+        total_expense = Sum(
+            Case(When(type=Transaction.EXPENSE, then='amount'),
+                 default=0, output_field=IntegerField()))
+    )
+    balance = (totals['total_income'] or 0) - (totals['total_expense'] or 0)
+
+    context = {
+        'transactions':  transactions,
+        'total_income':  totals['total_income'] or 0,
+        'total_expense': totals['total_expense'] or 0,
+        'balance':       balance,
+    }
+    return render(request, 'index.html', context)

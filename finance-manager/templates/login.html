@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود - بستون</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="auth-styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="container-fluid">
+            <div class="row min-vh-100">
+                <!-- Left Side - Form -->
+                <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                    <div class="auth-form-container">
+                        <div class="text-center mb-4">
+                            <div class="auth-logo">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h2 class="auth-title">ورود به بستون</h2>
+                            <p class="auth-subtitle">به داشبورد مدیریت مالی خود وارد شوید</p>
+                        </div>
+
+                        <form id="loginForm" class="auth-form">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">نام کاربری یا ایمیل</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="username" name="username" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">رمز عبور</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    مرا به خاطر بسپار
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 mb-3">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                ورود
+                            </button>
+
+                            <div class="text-center">
+                                <a href="#" class="auth-link">رمز عبور را فراموش کرده‌اید؟</a>
+                            </div>
+                        </form>
+
+                        <div class="auth-divider">
+                            <span>یا</span>
+                        </div>
+
+                        <div class="text-center">
+                            <p class="mb-0">حساب کاربری ندارید؟</p>
+                            <a href="register.html" class="auth-link fw-bold">ثبت نام کنید</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Image/Illustration -->
+                <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center auth-bg">
+                    <div class="auth-illustration">
+                        <div class="illustration-card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h3>مدیریت هوشمند مالی</h3>
+                            <p>درآمد و هزینه‌های خود را به راحتی مدیریت کنید</p>
+                        </div>
+                        <div class="illustration-card">
+                            <div class="card-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <h3>کنترل کامل بودجه</h3>
+                            <p>گزارش‌های دقیق و تحلیل عملکرد مالی</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="auth-script.js"></script>
+</body>
+</html>
