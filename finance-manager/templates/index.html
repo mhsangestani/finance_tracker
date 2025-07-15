@@ -1,4 +1,6 @@
 {% load static %}
+{% load form_filters %}
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -140,46 +142,41 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="transactionForm">
+                    <form method="post" action="{% url 'add_transaction' %}">
+                        {% csrf_token %}
+
                         <div class="mb-3">
                             <label class="form-label">نوع تراکنش</label>
-                            <select class="form-select" id="transactionType" required>
-                                <option value="">انتخاب کنید</option>
-                                <option value="income">درآمد</option>
-                                <option value="expense">هزینه</option>
-                            </select>
+                            {{ form.type|add_class:"form-select" }}
                         </div>
+
                         <div class="mb-3">
                             <label class="form-label">مبلغ</label>
-                            <input type="number" class="form-control" id="amount" required>
+                            {{ form.amount|add_class:"form-control" }}
                         </div>
+
                         <div class="mb-3">
                             <label class="form-label">شرح</label>
-                            <input type="text" class="form-control" id="description" required>
+                            {{ form.description|add_class:"form-control" }}
                         </div>
+
                         <div class="mb-3">
                             <label class="form-label">دسته‌بندی</label>
-                            <select class="form-select" id="category" required>
-                                <option value="">انتخاب کنید</option>
-                                <option value="غذا">غذا</option>
-                                <option value="حمل و نقل">حمل و نقل</option>
-                                <option value="خرید">خرید</option>
-                                <option value="تفریح">تفریح</option>
-                                <option value="قبض">قبض</option>
-                                <option value="حقوق">حقوق</option>
-                                <option value="فروش">فروش</option>
-                                <option value="سایر">سایر</option>
-                            </select>
+                            {{ form.category|add_class:"form-select" }}
                         </div>
+
                         <div class="mb-3">
                             <label class="form-label">تاریخ</label>
-                            <input type="date" class="form-control" id="date" required>
+                            <input type="date" name="date" class="form-control" required>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">انصراف</button>
+                            <button type="submit" class="btn btn-primary">افزودن</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">انصراف</button>
-                    <button type="button" class="btn btn-primary" onclick="addTransaction()">افزودن</button>
+
                 </div>
             </div>
         </div>
